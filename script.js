@@ -37,7 +37,6 @@ container.addEventListener('scroll', () => {
   window.clearTimeout(isScrolling);
 
   isScrolling = setTimeout(() => {
-      console.log('scrollin')
       updateCanvasVisibility();
   }, 100);
 });
