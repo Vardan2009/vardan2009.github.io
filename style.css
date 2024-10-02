@@ -40,12 +40,12 @@ html, body {
 a.link {
     padding: 0px;
     transition-duration: 0.3s;
+    text-decoration: none;
 }
 
 a.link:hover {
     background-color: var(--hl);
     color: var(--bg2);
-    text-decoration: none;
     transition-duration: 0.3s;
 }
 
@@ -72,6 +72,7 @@ div#main {
     text-shadow: var(--bg1) 5px 5px 0px;
     font-size: 100px;
     margin-bottom: 30px;
+    transition-duration: 0.3s;
 }
 
 canvas#maincnv {
@@ -157,7 +158,13 @@ section > div {
 }
 
 @media (max-width: 750px) {
-    h1#title {
+    .huge {
+        font-size: 70px !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .huge {
         font-size: 50px !important;
     }
 }
@@ -167,4 +174,10 @@ img.flag {
     height: 1em;
     margin: 7px;
     border-radius: 3px;
+}
+
+div.flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

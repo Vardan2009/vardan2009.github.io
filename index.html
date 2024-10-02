@@ -29,12 +29,28 @@
                 <span class="highlighted">Yerevan</span>,&nbsp;<span class="highlighted">Armenia</span>
                 <img class="flag" src="files/am.png" alt="Flag of Armenia"/>
             </div>.
-            I started my programming journey with the basics of C++,
-            and then started learning game development with the Unity Game Engine and C#.
+            I started my programming journey with <span class="highlighted">the basics of C++</span>,
+            and then started learning game development with <span class="highlighted">the Unity Game Engine</span> and <span class="highlighted">C#</span>.
             I also learned some web development (HTML, CSS, JS, React and some Angular)<br>
             Currently I am learning <span class="highlighted">C/C++</span>, <span class="highlighted">assembly</span> and <span class="highlighted">low level programming</span> in general.<br>
         </div></section>
-        <section class="section">Section 3</section>
+        <section class="section">
+            <div>
+                <div class="flex">
+                    <a href="#" onclick="setProj(-1)"><i class="fa-solid fa-left-long"></i></a>
+                    <h1>Projects</h1>
+                    <a href="#" onclick="setProj(1)"><i class="fa-solid fa-right-long"></i></a>
+                </div>
+                <div class="project">
+                    <h1 id="proj_name" class="huge"></h1>
+                    <p id="proj_description"></p>
+                    <br>
+                    <p>Skills: <b><span id="proj_skills"></span></b></p>
+                    <br>
+                    <h4><a id="proj_ghlink" style="padding: 10px; margin: 10px;" target="_blank" href="" class="link"><i class="fa-brands fa-github"></i> GitHub Repository <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h4>
+                </div>
+            </div>
+        </section>
         <section class="section">
             <footer>
                 <h6>Thank you for visiting my website!</h6>
@@ -44,6 +60,7 @@
     </div>
     
     <script src="js/palette.js" defer></script>
+    <script src="js/projects.js" defer></script>
     <script src="js/typewriter.js" defer></script>
     <script src="js/scroll.js" defer></script>
     <script src="js/canvas.js" defer></script>
