@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-:root {
-    --bg1: #1D2D44;
-    --bg2: #0D1321;
-    --fg: #5f819e;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -33,12 +27,25 @@ html, body {
     color: var(--bg2);
 }
 
-.highlighted {
-    color: yellow;
+.highlighted, a {
+    color: var(--hl);
 }
 
-.highlighted::selection {
-    background-color: yellow;
+.highlighted::selection, a::selection {
+    background-color: var(--hl);
+}
+
+a {
+    padding: 0px;
+    transition-duration: 0.3s;
+}
+
+a:hover {
+    background-color: var(--hl);
+    color: var(--bg2);
+    text-decoration: none;
+    padding: 5px;
+    transition-duration: 0.3s;
 }
 
 div#main {
@@ -61,7 +68,8 @@ div#main {
 }
 
 .huge {
-    font-size: 50px;
+    text-shadow: var(--bg1) 5px 5px 0px;
+    font-size: 100px;
     margin-bottom: 30px;
 }
 
@@ -139,4 +147,23 @@ div.icons i:active {
 
 .blinkcontainer {
     animation: blink 2s infinite;
+}
+
+section > div {
+    z-index: 5;
+    min-width: 200px;
+    width: 80%;
+}
+
+@media (max-width: 750px) {
+    h1#title {
+        font-size: 60px !important;
+    }
+}
+
+img.flag {
+    display: inline;
+    height: 1em;
+    margin: 7px;
+    border-radius: 3px;
 }
