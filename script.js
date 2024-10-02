@@ -13,23 +13,36 @@ function typewriter() {
   }
 }
 
+
 container.addEventListener('wheel', (event) => {
-    event.preventDefault();
-    const delta = event.deltaY;
-
-    if (container.scrollTop <= window.innerHeight) {
-      canvas.className = "fadeincontainer"
-    }
-
-    if (delta > 0) {
-      canvas.className = "fadeoutcontainer"
-    }
-
-    container.scrollBy({
-        top: delta,
-        behavior: 'smooth',
-    });
+  event.preventDefault();
+  container.scrollBy({
+    top: event.deltaY,
+    behavior: 'smooth',
+  });
 });
+
+const updateCanvasVisibility = () => {
+  if (container.scrollTop < window.innerHeight) {
+      canvas.className = "fadeincontainer";
+  } else {
+      canvas.className = "fadeoutcontainer";
+  }
+};
+
+updateCanvasVisibility();
+let isScrolling;
+
+container.addEventListener('scroll', () => {
+  window.clearTimeout(isScrolling);
+
+  isScrolling = setTimeout(() => {
+      console.log('scrollin')
+      updateCanvasVisibility();
+  }, 100);
+});
+
+
 
 ctx = canvas.getContext('2d');
 
