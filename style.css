@@ -35,12 +35,12 @@ html, body {
     background-color: var(--hl);
 }
 
-a {
+a.link {
     padding: 0px;
     transition-duration: 0.3s;
 }
 
-a:hover {
+a.link:hover {
     background-color: var(--hl);
     color: var(--bg2);
     text-decoration: none;
