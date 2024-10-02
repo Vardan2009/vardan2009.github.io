@@ -1,31 +1,65 @@
-const pallettes = [
+const palettes = [
     {
-        bg1: "green",
+        name: "lavender",
+        bg1: "steelblue",
+        bg2: "darkslateblue",
+        fg: "white",
+        hl: "lightcyan",
+    },
+    {
+        name: "green",
+        bg1: "black",
+        bg2: "seagreen",
+        fg: "white",
+        hl: "yellow",
+    },
+    {
+        name: "olive",
+        bg1: "olive",
+        bg2: "darkkhaki",
+        fg: "black",
+        hl: "lightgoldenrodyellow",
+    },
+    {
+        name: "terminal",
+        bg1: "dimgray",
         bg2: "black",
         fg: "white",
-        hl: "greenyellow",
+        hl: "yellowgreen",
+    },
+    {
+        name: "silver",
+        bg1: "white",
+        bg2: "lightgray",
+        fg: "black",
+        hl: "darkgreen",
     }
-]
+];
 
+const themeText = document.querySelector("span#theme")
 
-const updateStyles = (idx) =>
+let currentStyle = Math.floor(Math.random() * palettes.length)
+
+const updateStyles = (idx, scroll) => {
+    currentStyle = idx
     document.documentElement.style =
-        `--bg1: ${pallettes[idx].bg1};` +
-        `--bg2: ${pallettes[idx].bg2};` +
-        `--fg: ${pallettes[idx].fg};`   +
-        `--hl: ${pallettes[idx].hl};`
+        `--bg1: ${palettes[idx].bg1};` +
+        `--bg2: ${palettes[idx].bg2};` +
+        `--fg: ${palettes[idx].fg};`   +
+        `--hl: ${palettes[idx].hl};`
     ;
+    themeText.innerHTML = palettes[idx].name;
+    if (scroll)
+        container.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+}
 
-localStorage['color-mode-idx'] = localStorage['color-mode-idx'] || 0
-if(parseInt(localStorage['color-mode-idx']) >= pallettes.length)
-    localStorage['color-mode-idx'] = 0
-updateStyles(parseInt(localStorage['color-mode-idx']))
+updateStyles(currentStyle)
 
-window.addEventListener("keydown", (e) => {
-    if (e.key == 'm') {
-        localStorage['color-mode-idx'] = parseInt(localStorage['color-mode-idx']) + 1;
-        if(parseInt(localStorage['color-mode-idx']) >= pallettes.length)
-            localStorage['color-mode-idx'] = 0
-        updateStyles(parseInt(localStorage['color-mode-idx']))
-    }
-})
+const randomPalette = () => {
+    let newStyle = Math.floor(Math.random() * palettes.length)
+    if(currentStyle != newStyle) updateStyles(newStyle, true)
+    else randomPalette()
+}
