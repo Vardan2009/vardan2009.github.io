@@ -1,30 +1,30 @@
 const projects = [
     {
-        name: "kitelang",
+        name: "<i class=\"fa-solid fa-diamond\"></i><br>kitelang",
         description: "Kite is a very simple low-level programming language.<br>It provides direct access to memory and hardware with pointers and registers, allowing for system-level programming with minimal abstraction.",
         ghlink: "https://github.com/Vardan2009/kitelang",
         skills: ["C++", "x86 Assembly"]
     },
     {
-        name: "numeral",
+        name: "<i class=\"fa-solid fa-square-root-variable\"></i><br>numeral",
         description: "A very minimal expression evaluator written in C++",
         ghlink: "https://github.com/Vardan2009/numeral",
         skills: ["C++"]
     },
     {
-        name: "spamsentry",
+        name: "<i class=\"fa-solid fa-envelopes-bulk\"></i><br>spamsentry",
         description: "A simple machine learning algorithm created for a workshop in TUMO Yerevan",
         ghlink: "https://github.com/Vardan2009/spamsentry",
         skills: ["Python", "SkicitLearn", "Pandas"]
     },
     {
-        name: "eigerlang",
+        name: "<i class=\"fa-solid fa-mountain\"></i><br>eigerlang",
         description: "Eiger (name from Mt. Eiger, Switzerland) is a simple interpreted dynamic-typed programming language.",
         ghlink: "https://github.com/eigerproject/eigercs",
         skills: ["C#"]
     },
     {
-        name: "speedtypers",
+        name: "<i class=\"fa-solid fa-keyboard\"></i><br>speedtypers",
         description: "A web keyboard training game created for a workshop in TUMO Yerevan",
         ghlink: "https://github.com/Vardan2009/FastCoding",
         skills: ["HTML", "CSS", "JavaScript"]
