@@ -1,15 +1,29 @@
+const skillColors = {
+    "CMake": "rgb(204, 40, 81)",
+    "NASM": "rgb(41, 114, 148)",
+    "C++": "rgb(40, 152, 204)",
+    "Python": "rgb(204, 174, 40)",
+    "SkicitLearn": "rgb(204, 40, 81)",
+    "Pandas": "rgb(114, 204, 40)",
+    "C#": "rgb(250, 31, 156)",
+    "HTML": "rgb(214, 124, 20)",
+    "CSS": "rgb(20, 185, 214)",
+    "JavaScript": "rgb(214, 185, 20)",
+    "x86 Assembly": "rgb(41, 114, 148)"
+}
+
 const projects = [
     {
         name: "<i class=\"fa-solid fa-diamond\"></i><br>kitelang",
         description: "Kite is a very simple low-level programming language.<br>It provides direct access to memory and hardware with pointers and registers, allowing for system-level programming with minimal abstraction.",
         ghlink: "https://github.com/Vardan2009/kitelang",
-        skills: ["C++", "x86 Assembly"]
+        skills: ["CMake", "NASM", "C++", "x86 Assembly"]
     },
     {
         name: "<i class=\"fa-solid fa-square-root-variable\"></i><br>numeral",
         description: "A very minimal expression evaluator written in C++",
         ghlink: "https://github.com/Vardan2009/numeral",
-        skills: ["C++"]
+        skills: ["CMake", "C++"]
     },
     {
         name: "<i class=\"fa-solid fa-envelopes-bulk\"></i><br>spamsentry",
@@ -42,9 +56,17 @@ const setProj = (delta) => {
         projIdx = projects.length - 1
     if (projIdx >= projects.length)
         projIdx = 0
-    elProjName.innerHTML = projects[projIdx].name
-    elProjDescription.innerHTML = projects[projIdx].description
-    elProjSkills.innerHTML = projects[projIdx].skills.join(', ')
+    elProjName.innerHTML = projects[projIdx].name;
+    elProjDescription.innerHTML = projects[projIdx].description;
+    elProjSkills.innerHTML = "";
+    projects[projIdx].skills.forEach((s,i) => {
+        let el = document.createElement("span");
+        el.innerHTML = s;
+        el.style = skillColors[s] ? `color: ${skillColors[s]};` : "";
+        elProjSkills.appendChild(el)
+        if(i != projects[projIdx].skills.length - 1)
+            elProjSkills.innerHTML += ", ";
+    })
     elProjGhLink.setAttribute("href", projects[projIdx].ghlink)
 }
 

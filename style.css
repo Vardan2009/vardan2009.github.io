@@ -181,3 +181,9 @@ div.flex {
     justify-content: space-around;
     align-items: center;
 }
+
+.bgbox {
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+    color: white;
+}
