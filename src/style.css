@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --dark: #131312;
+  --dark-lighter: #1f1f1e;
+
+  --light: #cfdbd5;
+  --light-lighter: #e8eddf;
+
+  --accent: #e6a84a;
+
+  --fw-normal: 300;
+  --fw-bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  user-select: none;
+
+  font-family: "Victor Mono", monospace;
+
+  font-optical-sizing: auto;
+  font-weight: var(--fw-normal);
+  font-style: normal;
+}
+
+#app {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+}
+
+* {
+  -webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+}
+
+/*
+  === Page Top Hint ===
+*/
+.floating-hint-top {
+  position: absolute;
+  z-index: 10;
+
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+
+  opacity: 0.3;
+
+  transition: 0.15s ease-in;
+}
+
+.floating-hint-top:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/*
+  === Common/Utils ===
+*/
+.bold {
+  font-weight: var(--fw-bold);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.text-solid-shadow {
+  text-shadow: -5px 5px 0px #000;
+}
+
+.big-title {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+@media screen and (orientation: portrait) {
+  .big-title {
+    font-size: 48px;
+  }
+
+  .hide-on-small {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .big-title {
+    font-size: 48px;
+  }
+
+  .hide-on-small {
+    display: none !important;
+  }
+}
+
+.translucent {
+  opacity: 0.5;
+}
+
+.marginb {
+  margin-bottom: 10px;
+}
+
+hr {
+  margin: 30px 0px;
+  opacity: 0.1;
+}
+
+.content-width {
+  width: 80%;
+}
+
+@keyframes undulate {
+  0% {
+    transform: translateY(-3px);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
+.undulate-anim {
+  animation: undulate infinite 3s ease-in-out;
+}
+
+/*
+  === Link Button ===
+*/
+.link-btn {
+  position: relative;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 5px;
+  display: inline-block;
+  border: 3px solid var(--accent);
+  transition: 0.15s ease-out;
+  z-index: 0;
+}
+
+.link-btn::before {
+  content: " ";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+
+  background-color: var(--accent);
+
+  z-index: -1;
+
+  transition: 0.15s ease-in;
+}
+
+.link-btn:hover::before {
+  height: 100%;
+}
+
+.link-btn:hover {
+  color: var(--dark);
+}
+
+/*
+  === Square Link Button ===
+*/
+a.link-btn.square::after {
+  display: none;
+}
+
+a.link-btn.square {
+  text-align: center;
+  padding: 5px;
+
+  width: 50px;
+  height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  === Page ===
+*/
+
+.flex-page {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.flex-page.flex-page-centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-page-vertical {
+  align-items: space-around;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0;
+  row-gap: 0;
+  column-gap: 0;
+}
+
+.flex-page-side {
+  width: 30%;
+  min-width: min-content;
+}
+
+@media screen and (orientation: portrait) {
+  .flex-page {
+    align-items: start;
+  }
+
+  .flex-page > div {
+    width: 100%;
+    padding: 30px;
+  }
+}
+
+/*
+  === Regular Link ===
+*/
+a:not(.link-btn) {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: 0.15s ease-out;
+  display: inline-block;
+}
+
+a:not(.link-btn):hover {
+  color: var(--light-lighter);
+}
+
+a:not(.link-btn)::before {
+  content: " ";
+  position: absolute;
+  height: 1px;
+  background-color: var(--accent);
+  bottom: 0;
+  left: 0;
+  width: 0px;
+
+  transition: 0.15s ease-out;
+}
+
+a:not(.link-btn):hover::before {
+  width: 100%;
+  background-color: var(--light-lighter);
+}
+
+/*
+  === External Link ===
+*/
+a[target="_blank"]:not(.link-btn):hover::before {
+  width: calc(100% - 11px);
+}
+
+a[target="_blank"]::after {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: text-top;
+  font-size: smaller;
+  content: "⤴";
+
+  font-family: "Apple Symbols";
+
+  transition: 0.15s ease-out;
+}
+
+a[target="_blank"]:hover::after {
+  transform: translateY(-3px);
+}
+
+a[target="_blank"]:active::after {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+.scroll-code {
+  background-color: var(--dark-lighter);
+  overflow-x: scroll;
+  padding: 5px;
+  border-radius: 5px;
+}
