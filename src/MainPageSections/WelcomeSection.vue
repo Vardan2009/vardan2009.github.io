@@ -1,13 +1,15 @@
 <script setup>
 import PageSection from "@/PageSection.vue";
 import { Github, Youtube, ArrowDown } from "@iconoir/vue";
+
+const emit = defineEmits(["scroll-down"]);
 </script>
 
 <template>
   <PageSection>
     <div class="main-bg"></div>
 
-    <div class="floating-hint-top" @click="this.$emit('scroll-down')">
+    <div class="floating-hint-top" @click="emit('scroll-down')">
       <ArrowDown class="undulate-anim" /> Scroll down
     </div>
 

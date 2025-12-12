@@ -4,6 +4,7 @@ import { ArrowDown } from "@iconoir/vue";
 import PageSection from "@/PageSection.vue";
 
 const props = defineProps(["title", "scroll-down"]);
+const emit = defineEmits(["scroll-down"]);
 </script>
 
 <template>
@@ -11,7 +12,7 @@ const props = defineProps(["title", "scroll-down"]);
     <div
       v-if="props.scrollDown !== undefined"
       class="floating-hint-top"
-      @click="this.$emit('scroll-down')"
+      @click="emit('scroll-down')"
     >
       <ArrowDown class="undulate-anim" /> Scroll down
     </div>
