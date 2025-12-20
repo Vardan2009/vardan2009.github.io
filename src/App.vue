@@ -99,17 +99,17 @@ px.Greet(py)</pre>
   <ProjectSection
     title="P-8 Computer"
     root-class="style-p8"
-    :tags="['Computer architecture', 'Low-level programming', 'C']"
+    :tags="['Computer architecture', 'Low-level programming', 'C++']"
   >
     <template v-slot:description>
       P-8 is an 8-bit RISC with a single-cycle CPU.<br /><br />
       Implemented and simulated in
-      <a href="" target="_blank">Digital (by hneemann)</a> with chips and logic
-      gates, it can access 2048 bits of runtime RAM, 5120 bytes (256
-      instructions) of program code, interact with peripherals and more.<br /><br />
-      P-8 also has its own assembler (p8cpu) written in C<br /><br />
+      <a href="https://github.com/hneemann/Digital" target="_blank">Digital (by hneemann)</a> with chips and logic
+      gates, it can access 2048 bits of runtime RAM, 4096 bits (256
+      instructions) of program code.<br /><br />
+      P-8 also has its own assembler (p8cpu) written in C++<br /><br />
       <a
-        href="https://github.com/Vardan2009/p8cpu"
+        href="https://github.com/Vardan2009/p8"
         target="_blank"
         class="link-btn"
         >Project Link (GitHub)</a
