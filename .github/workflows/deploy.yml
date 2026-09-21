@@ -1,0 +1,63 @@
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout basalt repo
+        uses: actions/checkout@v4
+        with:
+          repository: Vardan2009/basalt
+          path: basalt
+          submodules: recursive
+
+      - name: Cache basalt build
+        uses: actions/cache@v4
+        with:
+          path: basalt/build
+          key: basalt-${{ runner.os }}-${{ hashFiles('basalt/**/CMakeLists.txt', 'basalt/src/**') }}
+
+      - name: Configure basalt
+        run: cmake -S basalt -B basalt/build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build basalt
+        run: cmake --build basalt/build --config Release --parallel
+
+      - name: Build website
+        working-directory: site
+        run: ${{ github.workspace }}/basalt/build/basalt build .
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
