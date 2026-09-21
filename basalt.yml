@@ -1,0 +1,15 @@
+site:
+  pages: src
+  out: dist
+
+  layouts: layouts
+  partials: partials
+  public: public
+
+  data:
+    website-title: vpetrosyan
+    blog-website-title: vpetrosyan blog
+    year: 2026
+
+    gh-link: https://github.com/Vardan2009
+    yt-link: https://youtube.com/@vpetrosyan
