@@ -8,7 +8,7 @@ layout: generic
 
 ---
 
-I'm Vardan, a computer enthusiast and self-taught programmer and game developer from Armenia.
+I'm Vardan, a computer enthusiast, self-taught programmer and game developer from Armenia.
 
 <br>
 
